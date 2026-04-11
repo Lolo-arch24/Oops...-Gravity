@@ -1,0 +1,245 @@
+[gd_scene load_steps=15 format=3 uid="uid://hlpquargtl3f"]
+
+[ext_resource type="Texture2D" uid="uid://dswa14ldrdn3c" path="res://Screenshots/Oops... Gravity screenshot.png" id="1_bqqt6"]
+[ext_resource type="FontFile" uid="uid://btg56jitn0djw" path="res://Assets/fonts/PixelOperator8.ttf" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://d2k0qr7sixvxx" path="res://scripts/main_menu.gd" id="1_wu84c"]
+[ext_resource type="FontFile" uid="uid://djb3tl6g3y5po" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="3_wu84c"]
+[ext_resource type="AudioStream" uid="uid://csp53yauh8csx" path="res://Assets/Music/time_for_adventure.mp3" id="5_8ln24"]
+[ext_resource type="Script" uid="uid://dyapevt0yl3v" path="res://scripts/audio_control.gd" id="6_rtw2f"]
+[ext_resource type="Script" uid="uid://dtjcr0fmeitwm" path="res://scripts/fullscreen_control.gd" id="7_oa1go"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ln24"]
+texture = ExtResource("1_bqqt6")
+modulate_color = Color(0.13803387, 0.13803372, 0.13803375, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vue75"]
+bg_color = Color(0.11989396, 0.41617936, 0.36467248, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
+bg_color = Color(0.015726173, 0.11300594, 0.09434628, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
+bg_color = Color(0.026246877, 0.15777889, 0.13472384, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_8ln24"]
+color = Color(0.019607844, 0.023529412, 0.050980393, 1)
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_rtw2f"]
+color = Color(0.12156863, 0.41568628, 0.3647059, 1)
+thickness = 7
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wu84c")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8ln24")
+
+[node name="MainButtons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -37.0
+offset_right = 172.0
+offset_bottom = 192.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Start" type="Button" parent="MainButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bqqt6")
+text = "Start game"
+
+[node name="Options" type="Button" parent="MainButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bqqt6")
+text = "Options"
+
+[node name="Exit" type="Button" parent="MainButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bqqt6")
+text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.5
+offset_top = -243.0
+offset_right = 161.5
+offset_bottom = -176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.08799625, 0.32647112, 0.28514525, 1)
+theme_override_colors/font_shadow_color = Color(0.019607844, 0.023529412, 0.050980393, 1)
+theme_override_constants/shadow_offset_x = 15
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("3_wu84c")
+theme_override_font_sizes/font_size = 64
+text = "Oops... Gravity"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_8ln24")
+autoplay = true
+bus = &"Music"
+
+[node name="SettingsBox" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -302.0
+offset_top = -112.0
+offset_right = 297.0
+offset_bottom = 259.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SettingsBox"]
+layout_mode = 0
+offset_right = 591.0
+offset_bottom = 85.0
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 32
+text = "Options"
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="SettingsBox"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 278.0
+offset_right = 474.0
+offset_bottom = 348.0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bqqt6")
+text = "Back"
+
+[node name="AudioControl" type="HSlider" parent="SettingsBox"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 62.0
+offset_right = 537.0
+offset_bottom = 119.0
+theme_override_styles/slider = SubResource("StyleBoxLine_8ln24")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_rtw2f")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_rtw2f")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("6_rtw2f")
+audio_bus_name = "Music"
+
+[node name="SFXcontrol" type="HSlider" parent="SettingsBox"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 124.0
+offset_right = 535.0
+offset_bottom = 181.0
+theme_override_styles/slider = SubResource("StyleBoxLine_8ln24")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_rtw2f")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_rtw2f")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("6_rtw2f")
+audio_bus_name = "SFX"
+
+[node name="FullscreenControl" type="CheckButton" parent="SettingsBox"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 197.0
+offset_right = 537.0
+offset_bottom = 287.0
+text = "Fullscreen"
+script = ExtResource("7_oa1go")
+
+[connection signal="pressed" from="MainButtons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MainButtons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MainButtons/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="SettingsBox/Back" to="." method="_on_back_options_pressed"]
+[connection signal="value_changed" from="SettingsBox/AudioControl" to="SettingsBox/AudioControl" method="_on_value_changed"]
+[connection signal="value_changed" from="SettingsBox/SFXcontrol" to="SettingsBox/SFXcontrol" method="_on_value_changed"]
+[connection signal="toggled" from="SettingsBox/FullscreenControl" to="SettingsBox/FullscreenControl" method="_on_toggled"]
